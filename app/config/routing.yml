@@ -1,0 +1,9 @@
+sport:
+    resource: "@SportBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+app:
+   resource: "@SportBundle/Controller"
+   type:     annotation
+   prefix:   /

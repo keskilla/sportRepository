@@ -1,0 +1,30 @@
+{% extends'::base.html.twig' %}
+{% block body %}
+
+
+    <div class="container">
+        <div class="col-md-10 col-md-offset-2 col-xs-offset-2 col-xs-6" >
+            {% if s is defined  %}
+            <h3>Ajouter un sport </h3>
+             {% endif %}
+            {% if s is not defined %}
+                <h3>Modifier un sport</h3>
+                {% endif %}
+
+            {{ form_start(form, {'attr':{'class':'form-hozizontal','id': 'new'}}) }}
+            <table>
+                <tr>
+                    <td>{{ form_label(form.label, 'Nom :') }}</td>
+                    <td>{{ form_widget(form.label,{'attr': {'class': 'form-control','placeholder':'Ex: Hockey, handball'}}) }}</td>
+                </tr>
+
+            </table>
+            <hr>
+
+            <input type="submit" value="Ajouter" class="btn btn-primary" />
+            <a href="{{ path('sport') }}"class="btn btn alert-warning">Retour</a>
+            {{ form_end(form) }}
+        </div>
+    </div>
+
+{% endblock %}

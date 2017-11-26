@@ -1,0 +1,47 @@
+{% extends'::base.html.twig' %}
+{% block body %}
+<html>
+
+    <body>
+        <div class="container">
+            <div class="col-md-10 col-md-offset-2 col-xs-offset-2 col-xs-6" >
+                <br />
+                    <h4>Mes sports </h4><a href="{{ path('index') }}"class="btn btn-info btn-lg"><span class="glyphicon glyphicon-plus"></span>Ajouter un sport</a>
+                <br /><br />
+              <table class="table-responsive" style="padding:5%; width: 50%">
+                  <thead>
+                    <tr>
+                        <td><b>Nom:</b></td>
+                        <td><b>Editer</b></td>
+                        <td><b>Supprimer</b></td>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                     {% for ss in s %}
+                    <tr>
+
+                        <td><a href="{{ path('sport_id',{'id':ss.id}) }}"> {{ ss.label }}</a></td>
+                        <td><a href="{{ path('sport_edit',{'id':ss.id}) }}"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                        <td><a href="{{ path('sport_delete',{'id':ss.id}) }}"><span class="glyphicon glyphicon-trash"></span></a></td>
+
+                    </tr>
+                     {% endfor %}
+                  </tbody>
+              </table>
+
+            <hr>{% if p is defined %}
+                    {% if p|length !=0 %}
+            <h4>Sport séléctionné : {{ p.label| serialize }}</h4>
+                    {% endif %}
+                {% endif %}
+
+
+            </div>
+        </div>
+    </body>
+</html>
+{% endblock %}
+
+
+
